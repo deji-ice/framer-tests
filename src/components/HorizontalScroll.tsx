@@ -39,10 +39,10 @@ const Card = ({ cardArray }: { cardArray: CardType }) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="inset-0 absolute  bg-black h-screen z-0 transition-transform duration-300 transform hover:scale-110"
+        className="inset-0 absolute  bg-transparent h-screen z-0 transition-transform duration-300 transform hover:scale-110"
       ></div>
       <div className="inset-0 absolute z-0 grid place-content-center">
-        <p className="bg-gradient-to-br px-4 py-2 rounded-md ">
+        <p className="bg-black text-white px-4 py-2 rounded-md ">
           {cardArray.title}
         </p>
       </div>

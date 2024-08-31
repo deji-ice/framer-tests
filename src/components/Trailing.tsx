@@ -31,7 +31,7 @@ const Trailing = () => {
   return (
     <div className="flex h-screen items-center bg-white justify-center">
       <div className="text-center pointer-events-none uppercase mix-blend-difference text-white z-10 relative font-bold text-[6vw] w-[70%]">
-        <p>We specialize in turning space into complexe shapes</p>
+        <p>We specialize in turning space into complex shapes</p>
       </div>
       <div className={`flex w-full h-full overflow-hidden absolute`}>
         {windowsWidth > 0 &&
