@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+import "./App.css";
+import Reveal from "./components/Reveal";
+import HorizontalScroll from "./components/HorizontalScroll";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="bg-red-700  w-screen flex flex-col items-center">
+        <Reveal width="100%">
+          <h1 className="text-white text-4xl font-semibold text-center m-10">
+            Vite + React
+          </h1>
+        </Reveal>
+        <div className="card">
+          <button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </button>
+          <Reveal width="100%">
+            <p>
+              Edit <code>src/App.tsx</code> and save to test HMR
+            </p>
+          </Reveal>
+        </div>
+        <Reveal width="fit-content">
+          <p className="read-the-docs text-4xl text-white flex ">
+            Click on the Vite and React logos to learn more
+          </p>
+        </Reveal>
+        <Reveal width="100%">
+          <div className="flex flex-col items-center justify-center m-20 text-white">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            cupiditate optio excepturi nisi officiis consequatur commodi vel,
+            doloremque quaerat ab molestiae eius autem voluptatem incidunt
+            quibusdam necessitatibus laborum sunt pariatur.
+          </div>
+        </Reveal>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <HorizontalScroll />
+      <div className="flex h-screen items-center justify-center bg-pink-900">
+        <Reveal width="100%">
+          <span className="font-semibold text-4xl uppercase text-slate-900">
+            scroll up
+          </span>
+        </Reveal>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
