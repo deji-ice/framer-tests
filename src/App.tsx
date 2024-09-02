@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-red-700  w-screen flex flex-col items-center">
+      <div className="bg-red-700 h-screen justify-center w-screen flex flex-col items-center">
         <Reveal width="100%">
           <h1 className="text-white text-4xl font-semibold text-center m-10">
             Vite + React
