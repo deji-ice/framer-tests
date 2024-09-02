@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import "./App.css";
 import Reveal from "./components/Reveal";
@@ -8,11 +8,11 @@ import StickyCursor from "./components/StickyCursor";
 
 function App() {
   const [count, setCount] = useState(0);
-
+  const stickyElement = useRef(null);
   return (
     <>
-      <Header />
-      <StickyCursor />
+      <Header ref={stickyElement} />
+      <StickyCursor stickyElement={stickyElement} />
       <div className="bg-red-700 h-screen justify-center w-screen flex flex-col items-center">
         <Reveal width="100%">
           <h1 className="text-white text-4xl font-semibold text-center m-10">
