@@ -1,5 +1,5 @@
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef, useTransition } from "react";
+import { useRef } from "react";
 import Reveal from "./Reveal";
 
 const HorizontalScroll = () => {
@@ -13,8 +13,8 @@ const HorizontalScroll = () => {
       <div className="sticky top-0 h-screen bg-purple-600 flex overflow-hidden items-center">
         <motion.div style={{ x }} className="flex gap-4">
           {cardArray.map((card) => (
-            <Reveal width="100%" >
-            <Card key={card.id} cardArray={card} />
+            <Reveal width="100%">
+              <Card key={card.id} cardArray={card} />
             </Reveal>
           ))}
         </motion.div>
