@@ -3,14 +3,18 @@ import { useState } from "react";
 import "./App.css";
 import Reveal from "./components/Reveal";
 import HorizontalScroll from "./components/HorizontalScroll";
+import Header from "./components/Header";
+import StickyCursor from "./components/StickyCursor";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      <Header />
+      <StickyCursor />
       <div className="bg-red-700 h-screen justify-center w-screen flex flex-col items-center">
-        <Reveal width="100%"> 
+        <Reveal width="100%">
           <h1 className="text-white text-4xl font-semibold text-center m-10">
             Vite + React
           </h1>
