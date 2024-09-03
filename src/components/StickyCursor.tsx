@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   animate,
   motion,
@@ -9,6 +9,7 @@ import {
 
 const StickyCursor = ({ stickyElement }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const cursor = useRef(null);
   const cursorSize = isHovered ? 60 : 15;
   const mouse = {
     x: useMotionValue(0),
@@ -47,24 +48,19 @@ const StickyCursor = ({ stickyElement }) => {
       //rotate
       rotate(distance);
 
-      //move mouse to center of stickyElement + slightly move it towards the mouse pointer
-      mouse.x.set(center.x - cursorSize / 2 + distance.x * 0.1);
-      mouse.y.set(center.y - cursorSize / 2 + distance.y * 0.1);
-
       //stretch based on the distance
       const absDistance = Math.max(Math.abs(distance.x), Math.abs(distance.y));
       const newScaleX = transform(absDistance, [0, height / 2], [1, 1.3]);
       const newScaleY = transform(absDistance, [0, width / 2], [1, 0.8]);
       scale.x.set(newScaleX);
       scale.y.set(newScaleY);
+      //move mouse to center of stickyElement + slightly move it towards the mouse pointer
+      mouse.x.set(center.x - cursorSize / 2 + distance.x * 0.1);
+      mouse.y.set(center.y - cursorSize / 2 + distance.y * 0.1);
     } else {
       mouse.x.set(clientX - cursorSize / 2);
       mouse.y.set(clientY - cursorSize / 2);
     }
-  };
-
-  const template = ({ rotate, scaleX, scaleY }) => {
-    return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
   };
 
   const manageMouseEnter = (e) => setIsHovered(true);
@@ -73,9 +69,11 @@ const StickyCursor = ({ stickyElement }) => {
     animate(
       cursor.current,
       { scaleX: 1, scaleY: 1 },
-      { duration: 0.1, type: "spring" }
+      { duration: 0.1 },
+      { type: "spring" }
     );
   };
+
   useEffect(() => {
     stickyElement.current.addEventListener("mouseenter", manageMouseEnter);
     stickyElement.current.addEventListener("mouseleave", manageMouseLeave);
@@ -86,6 +84,10 @@ const StickyCursor = ({ stickyElement }) => {
       window.removeEventListener("mousemove", onMouseMove);
     };
   }, [isHovered]);
+
+  const template = ({ rotate, scaleX, scaleY }) => {
+    return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
+  };
 
   return (
     <div>
@@ -101,6 +103,7 @@ const StickyCursor = ({ stickyElement }) => {
           height: cursorSize,
         }}
         transformTemplate={template}
+        ref={cursor}
         className="fixed z-50 w-4 h-4 bg-white mix-blend-difference rounded-[50%] motion"
       ></motion.div>
     </div>
