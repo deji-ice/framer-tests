@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef, useState } from "react";
 import {
   animate,
@@ -7,7 +8,7 @@ import {
   useSpring,
 } from "framer-motion";
 
-const StickyCursor = ({ stickyElement }) => {
+const StickyCursor = ({ stickyElement }: { stickyElement: React.RefObject<any> }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cursor = useRef(null);
   const cursorSize = isHovered ? 60 : 15;
@@ -28,7 +29,7 @@ const StickyCursor = ({ stickyElement }) => {
     y: useSpring(mouse.y, smoothOptions),
   };
 
-  const rotate = (distance) => {
+  const rotate = (distance: { x: number; y: number }) => {
     const angle = Math.atan2(distance.y, distance.x);
     animate(cursor.current, { rotate: `${angle}rad` }, { duration: 0 });
   };
@@ -63,8 +64,8 @@ const StickyCursor = ({ stickyElement }) => {
     }
   };
 
-  const manageMouseEnter = (e) => setIsHovered(true);
-  const manageMouseLeave = (e) => {
+  const manageMouseEnter = () => setIsHovered(true);
+  const manageMouseLeave = () => {
     setIsHovered(false);
     animate(
       cursor.current,
@@ -85,7 +86,7 @@ const StickyCursor = ({ stickyElement }) => {
     };
   }, [isHovered]);
 
-  const template = ({ rotate, scaleX, scaleY }) => {
+  const template = ({ rotate, scaleX, scaleY }: { rotate: string; scaleX: number; scaleY: number }) => {
     return `rotate(${rotate}) scaleX(${scaleX}) scaleY(${scaleY})`;
   };
 
