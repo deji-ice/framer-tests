@@ -10,7 +10,7 @@ const HorizontalScroll = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-99%"]);
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
-      <div className="sticky top-0 h-screen bg-purple-600 flex overflow-hidden items-center">
+      <div className="sticky top-0 h-screen bg-white flex overflow-hidden items-center">
         <motion.div style={{ x }} className="flex gap-4">
           {cardArray.map((card) => (
             <Reveal width="100%">
@@ -42,7 +42,7 @@ const Card = ({ cardArray }: { cardArray: CardType }) => {
         className="inset-0 absolute  bg-black h-screen z-0 transition-transform duration-300 transform hover:scale-110"
       ></div>
       <div className="inset-0 absolute z-0 grid place-content-center">
-        <p className="bg-gradient-to-br px-4 py-2 rounded-md bg-slate-400">
+        <p className="bg-gradient-to-br px-4 py-2 rounded-md ">
           {cardArray.title}
         </p>
       </div>

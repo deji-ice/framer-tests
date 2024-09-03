@@ -13,9 +13,9 @@ function App() {
     <>
       <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
-      <div className="bg-red-700 h-screen justify-center w-screen flex flex-col items-center">
+      <div className="bg-white text-black  h-screen justify-center w-screen flex flex-col items-center">
         <Reveal width="100%">
-          <h1 className="text-white text-4xl font-semibold text-center m-10">
+          <h1 className="text-black text-4xl font-semibold text-center m-10">
             Vite + React
           </h1>
         </Reveal>
@@ -30,12 +30,12 @@ function App() {
           </Reveal>
         </div>
         <Reveal width="fit-content">
-          <p className="read-the-docs text-4xl text-white flex ">
+          <p className="read-the-docs text-4xl  flex ">
             Click on the Vite and React logos to learn more
           </p>
         </Reveal>
         <Reveal width="100%">
-          <div className="flex flex-col items-center justify-center m-20 text-white">
+          <div className="flex flex-col items-center justify-center m-20 ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
             cupiditate optio excepturi nisi officiis consequatur commodi vel,
             doloremque quaerat ab molestiae eius autem voluptatem incidunt
