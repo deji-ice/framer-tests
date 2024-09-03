@@ -15,3 +15,14 @@
 
   pointer-events: all;
 }
+
+.body{
+
+
+  text-transform: uppercase;
+
+  mix-blend-mode: difference;
+
+  color: white;
+
+}

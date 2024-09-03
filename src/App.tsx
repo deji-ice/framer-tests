@@ -5,6 +5,7 @@ import Reveal from "./components/Reveal";
 import HorizontalScroll from "./components/HorizontalScroll";
 import Header from "./components/Header";
 import StickyCursor from "./components/StickyCursor";
+import Trailing from "./components/Trailing";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +14,7 @@ function App() {
     <>
       <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
+      <Trailing />
       <div className="bg-white text-black  h-screen justify-center w-screen flex flex-col items-center">
         <Reveal width="100%">
           <h1 className="text-black text-4xl font-semibold text-center m-10">
