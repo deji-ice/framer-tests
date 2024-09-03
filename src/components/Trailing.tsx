@@ -10,7 +10,6 @@ const Trailing = () => {
   const getBlocks = () => {
     const blockSize = windowsWidth * 0.05;
     const noOfBlocks = Math.ceil(window.innerHeight / blockSize);
-    console.log(noOfBlocks, blockSize);
     return [...Array(noOfBlocks).keys()].map((_, index) => {
       return (
         <div
@@ -22,10 +21,11 @@ const Trailing = () => {
     });
   };
 
-  const colorize = (e) => {
-    e.target.style.background = "black";
+  const colorize = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
+    target.style.background = "black";
     setTimeout(() => {
-      e.target.style.background = "transparent";
+      target.style.background = "transparent";
     }, 300);
   };
   return (
