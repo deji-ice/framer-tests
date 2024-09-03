@@ -42,7 +42,7 @@ const Reveal = ({ children, width = "fit-content" }: Props) => {
         {children}
       </motion.div>
       <motion.div
-        className="absolute bg-white top-1 bottom-1 left-0 right-0 z-20"
+        className="absolute bg-gray-500 top-1 bottom-1 left-0 right-0 z-20"
         variants={{
           hidden: {
             left: 0,
