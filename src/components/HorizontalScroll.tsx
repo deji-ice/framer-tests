@@ -13,8 +13,8 @@ const HorizontalScroll = () => {
       <div className="sticky top-0 h-screen bg-white flex overflow-hidden items-center">
         <motion.div style={{ x }} className="flex gap-4">
           {cardArray.map((card) => (
-            <Reveal width="100%">
-              <Card key={card.id} cardArray={card} />
+            <Reveal key={card.id} width="100%">
+              <Card cardArray={card} />
             </Reveal>
           ))}
         </motion.div>

@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from "react";
 import Magnetic from "./Magnetic";
 
-const Header = forwardRef((_, ref: Ref<HTMLDivElement>) => {
+const Header = forwardRef((props, ref: Ref<HTMLDivElement>) => {
   return (
     <div className="fixed w-full flex justify-end cursor-pointer mix-blend-difference z-10 p-3 box-border">
       <Magnetic>
