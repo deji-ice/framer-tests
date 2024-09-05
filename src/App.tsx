@@ -6,13 +6,16 @@ import HorizontalScroll from "./components/HorizontalScroll";
 import Header from "./components/Header";
 import StickyCursor from "./components/StickyCursor";
 import Trailing from "./components/Trailing";
+import { motion } from "framer-motion";
+import Form from "./components/Form";
 
 function App() {
   const [count, setCount] = useState(0);
   const stickyElement = useRef(null);
   return (
     <>
-      <Header ref={stickyElement} />
+      <Form />
+      {/* <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
       <Trailing />
       <div className="bg-white text-black  h-screen justify-center w-screen flex flex-col items-center">
@@ -47,12 +50,13 @@ function App() {
       </div>
       <HorizontalScroll />
       <div className="flex h-screen items-center justify-center bg-pink-900">
-        <Reveal width="100%">
-          <span className="font-semibold text-4xl uppercase text-slate-900">
-            scroll up
-          </span>
-        </Reveal>
-      </div>
+        <motion.button
+          whileTap={{ scale: 0.85 }}
+          className="font-semibold text-4xl uppercase bg-blue-500 p-2 rounded-md text-slate-900"
+        >
+          scroll up
+        </motion.button>
+      </div> */}
     </>
   );
 }
