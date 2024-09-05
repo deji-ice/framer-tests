@@ -15,16 +15,28 @@ const Form = () => {
   } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    axios
-      .patch("https://mongoose-tests.onrender.com/api/v1/user/send-otp", data)
-      .then((res) => {
-        console.log(res);
-        toast.success("Email sent successfully");
-      })
-      .catch((err) => toast.error(`error: ${err}`));
+    toast.promise(
+      axios
+        .patch(import.meta.env.VITE_API_ENDPOINT, data)
+        .then((response) => {
+          console.log("Response Data:", response.data); // Access the success response data
+          return response.data; // Return the data so it can be used in the success toast
+        })
+        .catch((error) => {
+          console.error("Error Response:", error.response?.data); // Log the error response
+          throw error.response?.data?.message || "Something went wrong"; // Throw custom error message for toast
+        }),
+      {
+        loading: "Sending email...", // Loading message during the request
+        success: (responseData) => <b>{`${responseData.message}`}</b>, // Customize success message with response data
+        error: (errorMessage) => (
+          <b>{`Could not send email: ${errorMessage}`}</b>
+        ), // Customize error message with error data
+      }
+    );
   };
 
-  console.log(watch("email"));
+  console.log(watch("email")); // Log the email input value in real-time for debugging
 
   return (
     <div className="flex items-center h-screen justify-center flex-col">
@@ -33,30 +45,33 @@ const Form = () => {
           Don't want to miss anything?
         </h1>
         <p className=" w-[27rem] text-center mt-4 font-medium font-montserrat">
-          Get weekly updates on the newest design stories, case studies and tips
-          right in your mailbox.
+          Get weekly updates on the newest design stories, case studies, and
+          tips right in your mailbox.
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col mt-6 w-[30rem] pb-2  text-3xl font-montserrat"
+          className="flex flex-col mt-6 w-[30rem] pb-2 text-3xl font-montserrat"
         >
           <div className="flex border-b border-slate-500 relative">
             <input
               {...register("email", {
-                required: true,
-                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[com]{3}$/i,
+                required: "Email is required",
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[com]{3}$/i,
+                  message: "Please enter a valid @ & .com email address",
+                },
               })}
               placeholder="email"
               name="email"
-              className=" outline-none  w-[77%] py-1 placeholder:text-3xl text-base"
+              className="outline-none w-[77%] py-1 placeholder:text-3xl text-base"
             />
             <button className="absolute bottom-0.5 right-0" type="submit">
-              submit
+              Submit
             </button>
           </div>
           {errors.email && (
             <span className="text-red-500 text-sm mt-2">
-              This field is required
+              {errors.email.message}
             </span>
           )}
         </form>
