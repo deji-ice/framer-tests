@@ -8,6 +8,7 @@ import StickyCursor from "./components/StickyCursor";
 import Trailing from "./components/Trailing";
 import { motion } from "framer-motion";
 import Form from "./components/Form";
+import SVGLoader from "./components/SVGLoader";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
     <>
       <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
+      <SVGLoader />
       <Trailing />
       <Form />
       <div className="bg-white text-black  h-screen justify-center w-screen flex flex-col items-center">
@@ -49,7 +51,7 @@ function App() {
         </Reveal>
       </div>
       <HorizontalScroll />
-    
+
       <div className="flex h-screen items-center justify-center bg-pink-900">
         <motion.button
           whileTap={{ scale: 0.85 }}
