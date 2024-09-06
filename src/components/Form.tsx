@@ -39,7 +39,7 @@ const Form = () => {
   console.log(watch("email")); // Log the email input value in real-time for debugging
 
   return (
-    <div className="flex items-center h-screen justify-center flex-col">
+    <div className="flex items-center h-screen bg-white justify-center flex-col">
       <div className="flex flex-col items-center gap-3">
         <h1 className="text-8xl font-semibold font-cormorant">
           Don't want to miss anything?
@@ -63,7 +63,7 @@ const Form = () => {
               })}
               placeholder="email"
               name="email"
-              className="outline-none w-[77%] py-1 placeholder:text-3xl text-base"
+              className="outline-none w-[77%] bg-transparent py-1 placeholder:text-3xl text-lg font-medium"
             />
             <button className="absolute bottom-0.5 right-0" type="submit">
               Submit

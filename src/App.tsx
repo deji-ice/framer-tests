@@ -14,10 +14,10 @@ function App() {
   const stickyElement = useRef(null);
   return (
     <>
-      <Form />
-      {/* <Header ref={stickyElement} />
+      <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
       <Trailing />
+      <Form />
       <div className="bg-white text-black  h-screen justify-center w-screen flex flex-col items-center">
         <Reveal width="100%">
           <h1 className="text-black text-4xl font-semibold text-center m-10">
@@ -49,6 +49,7 @@ function App() {
         </Reveal>
       </div>
       <HorizontalScroll />
+    
       <div className="flex h-screen items-center justify-center bg-pink-900">
         <motion.button
           whileTap={{ scale: 0.85 }}
@@ -56,7 +57,7 @@ function App() {
         >
           scroll up
         </motion.button>
-      </div> */}
+      </div>
     </>
   );
 }
