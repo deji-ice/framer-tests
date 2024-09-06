@@ -9,6 +9,7 @@ import Trailing from "./components/Trailing";
 import { motion } from "framer-motion";
 import Form from "./components/Form";
 import SVGLoader from "./components/SVGLoader";
+import TextMask from "./components/TextMask";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
       <Header ref={stickyElement} />
       <StickyCursor stickyElement={stickyElement} />
       <SVGLoader />
+      <TextMask/>
       <Trailing />
       <Form />
       <div className="bg-white text-black  h-screen justify-center w-screen flex flex-col items-center">
