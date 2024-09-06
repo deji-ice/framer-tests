@@ -105,7 +105,7 @@ const StickyCursor = ({ stickyElement }: { stickyElement: React.RefObject<any> }
         }}
         transformTemplate={template}
         ref={cursor}
-        className="fixed z-50 w-4 h-4 bg-white mix-blend-difference rounded-[50%] motion"
+        className="fixed w-4 h-4 bg-white mix-blend-difference rounded-[50%] motion"
       ></motion.div>
     </div>
   );
