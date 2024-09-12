@@ -18,11 +18,26 @@
 
 .body{
 
-
   text-transform: uppercase;
 
   mix-blend-mode: difference;
 
   color: white;
+
+}
+.burgerActive::after{
+      transform: rotate(45deg);
+     top: -1px;
+
+
+  
+
+}
+
+.burgerActive::before{
+
+  transform: rotate(-45deg);
+
+  top: 0px;
 
 }
