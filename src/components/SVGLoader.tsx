@@ -63,13 +63,13 @@ const SVGLoader = () => {
   };
 
   return (
-    <div className="flex justify-center bg-white items-center h-dvh">
-      <div className="w-[80%] text-[2vw] text-center">
+    <div className="flex justify-center bg-white items-center ">
+      {/* <div className="w-[80%] text-[2vw] text-center">
         <h1 className="text-6xl font-bold text-gray-900 mt-4 mb-6">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout.
         </h1>
-      </div>
+      </div> */}
       <div ref={loader} className={`w-full z-50 fixed h-[calc(100vh+200px)]`}>
         <svg className="h-full w-full">
           <path className="stroke-[1px] stroke-black " ref={path}></path>
