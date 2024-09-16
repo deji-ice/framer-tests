@@ -10,7 +10,7 @@ export interface SlideAnimation {
     exit: (i: number) => { x: number, transition: { duration: number, ease: number[], delay: number } };
 }
 
-export const slide: SlideAnimation = {
+export const slide = {
     initial: { x: 80 },
     enter: (i: number) => ({ x: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i } }),
     exit: (i: number) => ({ x: 80, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i } })
