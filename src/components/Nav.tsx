@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { NavLink, useLocation, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { menuSlide } from "../utils/animate";
 import Links from "./Link";
 
