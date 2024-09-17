@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { menuSlide } from "../utils/animate";
 import Links from "./Link";
+import Curve from "./Curve";
 
 interface NavItem {
   title: string;
@@ -88,6 +89,7 @@ const Nav = () => {
           <Link to={""}>NavLinkedIn</Link>
         </div>
       </div>
+      <Curve />
     </motion.div>
   );
 };
