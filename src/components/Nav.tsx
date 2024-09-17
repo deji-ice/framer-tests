@@ -10,7 +10,7 @@ interface NavItem {
   pathname: string;
 }
 
-const navItems:NavItem[] = [
+const navItems: NavItem[] = [
   {
     title: "Home",
 
@@ -18,9 +18,9 @@ const navItems:NavItem[] = [
   },
 
   {
-    title: "Work",
+    title: "Projects",
 
-    pathname: "/work",
+    pathname: "/projects",
   },
 
   {
@@ -36,9 +36,14 @@ const navItems:NavItem[] = [
   },
 ];
 
-const Nav = () => {
+type NavProps = {
+  active: () => void;
+};
+const Nav = ({ active }: NavProps) => {
   const pathname = useLocation();
-  const [selectedIndicator, setSelectedIndicator] = useState<string>(pathname.pathname || "");
+  const [selectedIndicator, setSelectedIndicator] = useState<string>(
+    pathname.pathname || ""
+  );
 
   return (
     <motion.div
@@ -66,9 +71,10 @@ const Nav = () => {
               <Links
                 key={index}
                 data={{ ...data, index }}
+                active={active}
                 isActive={selectedIndicator == data.pathname}
                 setSelectedIndicator={setSelectedIndicator}
-              ></Links>
+              />
             );
           })}
         </div>

@@ -10,8 +10,9 @@ type LinkProps = {
   };
   isActive: boolean;
   setSelectedIndicator: (href: string) => void;
+  active: () => void;
 };
-const Links = ({ data, isActive, setSelectedIndicator }: LinkProps) => {
+const Links = ({ data, isActive, setSelectedIndicator, active }: LinkProps) => {
   const { title, pathname, index } = data;
 
   return (
@@ -25,6 +26,7 @@ const Links = ({ data, isActive, setSelectedIndicator }: LinkProps) => {
       initial="initial"
       animate="enter"
       exit="exit"
+      onClick={active}
     >
       <motion.div
         variants={scale}

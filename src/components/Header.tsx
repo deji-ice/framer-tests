@@ -28,7 +28,7 @@ const Header = forwardRef((props, ref: Ref<HTMLDivElement>) => {
           <div className="bounds" ref={ref}></div>
         </div>
       </Magnetic>
-      <AnimatePresence mode={"wait"}>{isActive && <Nav />}</AnimatePresence>
+      <AnimatePresence mode={"wait"}>{isActive && <Nav active={active} />}</AnimatePresence>
     </div>
   );
 });
